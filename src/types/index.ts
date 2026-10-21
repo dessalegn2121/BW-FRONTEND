@@ -84,6 +84,16 @@ export interface User {
   status: 'active' | 'disabled';
 }
 
+export interface AdminCustomer {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  orderCount: number;
+  totalSpent: number;
+  lastOrder?: string;
+}
+
 export interface AuthResponse {
   token: string;
   user: User;

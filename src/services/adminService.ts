@@ -1,6 +1,6 @@
 import { api } from './api';
 import { toCategory, toMenuItem, toOrder, toRestaurantSettings } from './responseAdapters';
-import type { RestaurantSettings } from '../types';
+import type { AdminCustomer, RestaurantSettings } from '../types';
 
 type ApiMenu = Parameters<typeof toMenuItem>[0];
 type ApiCategory = Parameters<typeof toCategory>[0];
@@ -118,7 +118,7 @@ export const adminService = {
   },
 
   async listCustomers() {
-    const { data } = await api.get<{ customers: unknown[] }>('/admin/customers');
+    const { data } = await api.get<{ customers: AdminCustomer[] }>('/admin/customers');
     return data.customers;
   },
 
